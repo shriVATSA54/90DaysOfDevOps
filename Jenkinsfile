@@ -1,5 +1,5 @@
 pipeline {
-    agent {label: 'agentluffy'}
+    agent {label 'agentluffy'}
 
     stages {
         stage('Setup Files') {
