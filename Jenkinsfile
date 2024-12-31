@@ -82,6 +82,7 @@ pipeline {
                 echo "Push image to Docker"
                 withCredentials([usernamePassword(credentialsId: 'DockerHubCreds', passwordVariable: 'dockerHubPass', usernameVariable: 'dockerHubUser')]) {
                     script {
+                         checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'DockerHubCreds', url: 'https://github.com/shriVATSA54/90DaysOfDevOps.git']])
                         try {
                             // Log into DockerHub
                             bat "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
